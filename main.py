@@ -5,7 +5,7 @@ from typing import List, Literal, Optional
 from datetime import date
 import os
 import re
-
+from dotenv import load_dotenv
 from sqlalchemy import (
     create_engine,
     Column,
@@ -18,6 +18,7 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker, Session
 
+load_dotenv()
 # ── Database configuration ─────────────────────────────────────────────────────
 DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://USER:PASSWORD@HOST/DATABASE")
 engine = create_engine(DATABASE_URL)
